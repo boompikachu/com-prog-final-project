@@ -8,13 +8,18 @@ import { WeatherPageRoutingModule } from './weather-routing.module';
 
 import { WeatherPage } from './weather.page';
 
+import { HttpClientModule } from '@angular/common/http';
+import { TempProvider } from '../../providers/provider';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    HttpClientModule,
     WeatherPageRoutingModule
   ],
-  declarations: [WeatherPage]
+  declarations: [WeatherPage],
+  providers: [TempProvider]
 })
 export class WeatherPageModule {}

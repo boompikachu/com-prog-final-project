@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TempProvider } from '../../providers/provider';
+import { Temp } from '../../models/model'
 
 @Component({
   selector: 'app-weather',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherPage implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
 
+  public temp$: Observable<Temp>;
+  constructor(private tempProvider: TempProvider) {}
+  getTemp() {
+    this.temp$ = this.tempProvider.getTemp();
+  }
+
 }
+

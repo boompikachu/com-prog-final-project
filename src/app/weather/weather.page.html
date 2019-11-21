@@ -5,5 +5,17 @@
 </ion-header>
 
 <ion-content>
+  <ion-button expand='block' fill='clear' (click)='getTemp()'>
+    Get Forecast
+  </ion-button> <!--tmp.list[0].dt-->
+  <div *ngIf='temp$ | async as tmp'>
+    <h3>The weather will soon be:</h3>
+    <p>Time:{{tmp.list[0].dt*1000 | date: 'dd/MM/yyyy HH:mm'}}</p>
+    <p>Temperature: {{tmp.list[0].main.temp}}</p>
+    <p>Pressure: {{tmp.list[0].main.pressure}}</p>
+    <p>Humidity: {{tmp.list[0].main.humidity}}</p>
+    <p>Weather: {{tmp.list[0].weather[0].main}}</p>
+    <p>Wind speed: {{tmp.list[0].wind.speed}}</p>
+  </div>
   <ion-button expand="block" routerLink="/" routerDirection="backwards">Back</ion-button>
 </ion-content>
