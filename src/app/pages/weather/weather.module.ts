@@ -9,7 +9,7 @@ import { WeatherPageRoutingModule } from './weather-routing.module';
 import { WeatherPage } from './weather.page';
 
 import { HttpClientModule } from '@angular/common/http';
-import { TempProvider } from '../../providers/provider';
+import { TempProvider } from '../../../providers/provider';
 
 @NgModule({
   imports: [
