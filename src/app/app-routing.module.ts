@@ -8,6 +8,14 @@ const routes: Routes = [
     path: 'todo',
     loadChildren: () => import('./pages/todo/todo.module').then( m => m.TodoPageModule)
   },
+  {
+    path: 'calculator',
+    loadChildren: () => import('./pages/calculator/calculator.module').then( m => m.CalculatorPageModule)
+  },
+  {
+    path: 'weather',
+    loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
+  },
 ];
 
 @NgModule({
