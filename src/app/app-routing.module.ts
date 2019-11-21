@@ -6,15 +6,15 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'todo',
-    loadChildren: () => import('./todo/todo.module').then( m => m.TodoPageModule)
+    loadChildren: () => import('./pages/todo/todo.module').then( m => m.TodoPageModule)
   },
   {
     path: 'calculator',
-    loadChildren: () => import('./calculator/calculator.module').then( m => m.CalculatorPageModule)
+    loadChildren: () => import('./pages/calculator/calculator.module').then( m => m.CalculatorPageModule)
   },
   {
     path: 'weather',
-    loadChildren: () => import('./weather/weather.module').then( m => m.WeatherPageModule)
+    loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
   },
 ];
 
