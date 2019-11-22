@@ -13,7 +13,7 @@
   </ion-button> <!--tmp.list[0].dt-->
   <div *ngIf='temp$ | async as tmp'>
     <h3>The weather will soon be:</h3>
-    <p>Time:{{tmp.list[0].dt*1000 | date: 'dd/MM/yyyy HH:mm'}}</p>
+    <p>Time: {{tmp.list[0].dt*1000 | date: 'dd/MM/yyyy HH:mm'}}</p>
     <p>Temperature: {{tmp.list[0].main.temp}}</p>
     <p>Pressure: {{tmp.list[0].main.pressure}}</p>
     <p>Humidity: {{tmp.list[0].main.humidity}}</p>
