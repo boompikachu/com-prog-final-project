@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators'
 import { TodoProvider } from '../../../providers/provider';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-todo',
@@ -23,25 +24,22 @@ export class TodoPage implements OnInit {
 
   getTodo() {
     this.onlineTask$ = this.todoProvider.getTodo();
+    // console.log("getTodoFromWeb")
+    // console.log(this.onlineTask$)
   }
 
-  // async postTodo(task: string) {
-  //   this.todoProvider.postTodo(task).pipe(catchError(val => {
-  //     this.getTodo()
-  //     this.newTask = "";
-  //     return of(val)
-  //   })).subscribe(v => {
-  //     this.getTodo()
-  //     this.newTask = "";
-  //   });
-  // }
-
-  postTodo(task: string) {
-    console.log("post?");
-    this.todoProvider.postTodo(task);
-    console.log(this.tempTask$);
-    this.getTodo();
-    this.newTask = "";
+  async postTodo(task: string) {
+    this.todoProvider.postTodo(task).pipe(catchError(val => {
+      console.log('error but ok')
+      this.getTodo()
+      this.newTask = "";
+      return of(val)
+    })).subscribe(v => {
+      console.log('hihi', v)
+      this.getTodo()
+      this.newTask = "";
+    });
+    console.log("add")
   }
 
 
