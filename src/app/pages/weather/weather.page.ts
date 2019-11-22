@@ -17,6 +17,7 @@ export class WeatherPage implements OnInit {
   constructor(private tempProvider: TempProvider) {}
   getTemp() {
     this.temp$ = this.tempProvider.getTemp();
+    // console.log(this.temp$)
   }
 
 }

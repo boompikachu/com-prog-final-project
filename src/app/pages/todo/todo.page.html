@@ -12,9 +12,18 @@
     <ion-input type="text" placeholder="New Task" [(ngModel)]="newTask"></ion-input>
     <ion-button color="dark" (click)="addNewTask(newTask)">Add</ion-button>
   </ion-item>
-  <div *ngFor="let task of taskList; index as i">
+
+  <div *ngIf='onlineTask$ | async as tsks'>
+    <div *ngFor="let tsk of tsks; index as i">
+      <ion-item (click)="taskDone(i)">
+          <ion-label>{{ tsk }}</ion-label>
+      </ion-item>
+    </div>
+  </div>
+  
+  <!-- <div *ngFor="let task of taskList; index as i">
     <ion-item (click)="taskDone(i)">
       <ion-label>{{ task }}</ion-label>
     </ion-item>
-  </div>
+  </div> -->
 </ion-content>

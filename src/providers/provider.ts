@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Temp } from "../models/model"
+import { Todo } from "../models/model"
 
 @Injectable()
 export class TempProvider {
@@ -17,18 +18,19 @@ export class TempProvider {
 
 }
 
+@Injectable()
 export class TodoProvider {
     private todoURL = "https://cors-anywhere.herokuapp.com/https://com-prog-final-project.herokuapp.com"
 
     constructor(public http: HttpClient) {}
 
     getTodo() {
-        return this.http.get(this.todoURL + "/get")
+        return this.http.get<any>(this.todoURL + "/get")
     }
     postTodo(task) {
-        return this.http.get(this.todoURL + "/post?task_name=" + task)
+        return this.http.get<any>(this.todoURL + "/post?task_name=" + task)
     }
     deleteTodo(task) {
-        return this.http.get(this.todoURL + "/delete?task_name" + task)
+        return this.http.get<any>(this.todoURL + "/delete?task_name" + task)
     }
 }

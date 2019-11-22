@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoProvider } from '../../../providers/provider';
-import { Todo } from '../../../models/model'
-
 
 @Component({
   selector: 'app-todo',
@@ -13,14 +11,18 @@ export class TodoPage implements OnInit {
   taskList: string[] = [];
   newTask: string = "";
 
- 
   ngOnInit() {
+    this.getTodo()
   }
 
-  public task$: Observable<Todo>
+  public onlineTask$: Observable<any>;
+
   constructor(private todoProvider: TodoProvider) {}
+
   getTodo() {
-    this.task$ = this.todoProvider.getTodo();
+    this.onlineTask$ = this.todoProvider.getTodo();
+    // console.log("getTodoFromWeb")
+    // console.log(this.onlineTask$)
   }
 
 
