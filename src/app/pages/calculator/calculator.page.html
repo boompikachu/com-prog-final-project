@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>calculator</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    <ion-title class='title'>Calculator</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,5 +11,4 @@
   <ion-label floating>Example input: 1+2*3</ion-label>
   <ion-input type="text" [(ngModel)]="input"></ion-input>
   <ion-button expand="block" fill="clear" (click)="calculate(input)">Calculate</ion-button> 
-  <ion-button expand="block" routerLink="/" routerDirection="backwards">Back</ion-button>
 </ion-content>

@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>weather</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    <ion-title class='title'>Weather</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,5 +20,4 @@
     <p>Weather: {{tmp.list[0].weather[0].main}}</p>
     <p>Wind speed: {{tmp.list[0].wind.speed}}</p>
   </div>
-  <ion-button expand="block" routerLink="/" routerDirection="backwards">Back</ion-button>
 </ion-content>
