@@ -4,10 +4,31 @@ import { Temp } from "../models/model"
 
 @Injectable()
 export class TempProvider {
+
+
     private tempURL = "http://api.openweathermap.org/data/2.5/forecast?zip=10330,th&APPID=7743f38ce634083abe786e2d679955e3&units=metric"
     constructor(public http: HttpClient) {}
 
     getTemp() {
         return this.http.get<Temp>(this.tempURL)
+    }
+
+    
+
+}
+
+export class TodoProvider {
+    private todoURL = "https://cors-anywhere.herokuapp.com/https://com-prog-final-project.herokuapp.com"
+
+    constructor(public http: HttpClient) {}
+
+    getTodo() {
+        return this.http.get(this.todoURL + "/get")
+    }
+    postTodo(task) {
+        return this.http.get(this.todoURL + "/post?task_name=" + task)
+    }
+    deleteTodo(task) {
+        return this.http.get(this.todoURL + "/delete?task_name" + task)
     }
 }

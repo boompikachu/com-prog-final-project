@@ -4,3 +4,7 @@ export interface Temp {
     cnt: number
     list: any
 }
+
+export interface Todo {
+
+}

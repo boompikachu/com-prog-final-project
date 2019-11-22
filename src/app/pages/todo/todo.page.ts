@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TodoProvider } from '../../../providers/provider';
+import { Todo } from '../../../models/model'
+
 
 @Component({
   selector: 'app-todo',
@@ -9,10 +13,17 @@ export class TodoPage implements OnInit {
   taskList: string[] = [];
   newTask: string = "";
 
-  constructor() { }
  
   ngOnInit() {
   }
+
+  public task$: Observable<Todo>
+  constructor(private todoProvider: TodoProvider) {}
+  getTodo() {
+    this.task$ = this.todoProvider.getTodo();
+  }
+
+
 
   async addNewTask(task: string) {
     if (this.newTask != "") {
