@@ -10,7 +10,7 @@
 <ion-content>
   <ion-item>
     <ion-input type="text" placeholder="New Task" [(ngModel)]="newTask"></ion-input>
-    <ion-button color="dark" (click)="addNewTask(newTask)">Add</ion-button>
+    <ion-button color="dark" (click)="postTodo(newTask)">Add</ion-button>
   </ion-item>
 
   <div *ngIf='onlineTask$ | async as tsks'>
