@@ -25,12 +25,13 @@ export class TodoProvider {
     constructor(public http: HttpClient) {}
 
     getTodo() {
-        return this.http.get<any>(this.todoURL + "/get")
+        return this.http.get<any>("https://cors-anywhere.herokuapp.com/" + this.todoURL + "/get")
     }
     postTodo(task) {
-        return this.http.get<any>(this.todoURL + "/post?task_name=" + task)
+        console.log("prov")
+        return this.http.get<any>("https://cors-anywhere.herokuapp.com/" + this.todoURL + "/post?task_name=" + task)
     }
-    deleteTodo(task) {
+    deleteTodo(task: string) {
         return this.http.get<any>(this.todoURL + "/delete?task_name" + task)
     }
 }
