@@ -15,7 +15,9 @@ export class TodoPage implements OnInit {
   }
 
   async addNewTask(task: string) {
-    await this.taskList.push(task);
+    if (this.newTask != "") {
+      await this.taskList.push(task);
+    }
     this.newTask = "";
   }
 
