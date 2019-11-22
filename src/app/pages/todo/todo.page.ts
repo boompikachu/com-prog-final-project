@@ -17,7 +17,6 @@ export class TodoPage implements OnInit {
   }
 
   public onlineTask$: Observable<any>;
-  public tempTask$: Observable<any>;
 
   constructor(private todoProvider: TodoProvider) {}
 
@@ -25,23 +24,15 @@ export class TodoPage implements OnInit {
     this.onlineTask$ = this.todoProvider.getTodo();
   }
 
-  // async postTodo(task: string) {
-  //   this.todoProvider.postTodo(task).pipe(catchError(val => {
-  //     this.getTodo()
-  //     this.newTask = "";
-  //     return of(val)
-  //   })).subscribe(v => {
-  //     this.getTodo()
-  //     this.newTask = "";
-  //   });
-  // }
-
-  postTodo(task: string) {
-    console.log("post?");
-    this.todoProvider.postTodo(task);
-    console.log(this.tempTask$);
-    this.getTodo();
-    this.newTask = "";
+  async postTodo(task: string) {
+    this.todoProvider.postTodo(task).pipe(catchError(val => {
+      this.getTodo()
+      this.newTask = "";
+      return of(val)
+    })).subscribe(v => {
+      this.getTodo()
+      this.newTask = "";
+    });
   }
 
 
