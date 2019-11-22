@@ -35,12 +35,13 @@ export class TodoPage implements OnInit {
     });
   }
 
-
-  async addNewTask(task: string) {
-    if (this.newTask != "") {
-      await this.taskList.push(task);
-    }
-    this.newTask = "";
+  async deleteTodo(task: string) {
+    this.todoProvider.deleteTodo(task).pipe(catchError(val => {
+      this.getTodo();
+      return of(val)
+    })).subscribe(v => {
+      this.getTodo();
+    });
   }
 
   async taskDone(index: number) {
