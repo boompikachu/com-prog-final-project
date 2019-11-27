@@ -43,8 +43,10 @@ export class CalculatorPage implements OnInit {
       const value = splittedMultiplyDivide[i];
       if (arrayOfOperators[operatorIndex] === '*') {
         result *= Number(value);
+        operatorIndex += 1;
       } else if (arrayOfOperators[operatorIndex] === '/') {
         result /= Number(value);
+        operatorIndex += 1;
       }
     }
 
@@ -58,15 +60,19 @@ export class CalculatorPage implements OnInit {
       this.show('Error: No input')
     }
 
+    console.log('MAGIC', eval(input))
+
     let result = 0;
     let operatorIndex = 0
     const arrayOfOperators = [];
     arrayOfOperators.push('+');
     for (let i = 0; i < input.length; i++) {
       if (input.charAt(i) === '+') {
-        arrayOfOperators.push('+')
+        arrayOfOperators.push('+');
+        operatorIndex += 1;
       } else if (input.charAt(i) === '-') {
-        arrayOfOperators.push('-')
+        arrayOfOperators.push('-');
+        operatorIndex += 1;
       }
     };
     /*for (let i = 0; i < arrayOfOperators.length; i++) {
