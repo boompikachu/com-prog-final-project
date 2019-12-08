@@ -3,13 +3,13 @@
       <ion-buttons slot="start">
           <ion-back-button defaultHref="/"></ion-back-button>
       </ion-buttons>
-    <ion-title class='title'>Todo List</ion-title>
+    <ion-title class='title'>Ingredient list</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-input type="text" placeholder="New Task" [(ngModel)]="newTask"></ion-input>
+    <ion-input type="text" placeholder="New Ingredient" [(ngModel)]="newTask"></ion-input>
     <ion-button color="dark" (click)="postTodo(newTask)">Add</ion-button>
   </ion-item>
 
